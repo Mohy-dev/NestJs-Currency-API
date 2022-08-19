@@ -28,7 +28,7 @@ model Currency {
   updatedAt    DateTime       @updatedAt
   name         String
   code         String
-  euroRate     Float?
+  dollarRate     Float? // ratio to 1 fixed dollar
   ExchangeRate ExchangeRate[]
 
   @@map("currencies")

@@ -1,14 +1,25 @@
 /*eslint-disable*/
 import { PrismaClient } from '@prisma/client';
-import { data } from '../data';
+import { users, currencies, exchangeRates } from '../data';
 import process from 'process';
+// import { PrismaService } from '../src/prisma/prisma.service';
 
 const prisma = new PrismaClient();
+// let clean: PrismaService;
+// clean.cleanDb();
 
 async function main() {
   const user = await prisma.user.createMany({
-    data: data,
+    data: users,
   });
+  const currency = await prisma.currency.createMany({
+    data: currencies,
+  });
+  const exchangeRate = await prisma.exchangeRate.createMany(
+    {
+      data: exchangeRates,
+    },
+  );
 }
 
 main()
