@@ -6,6 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "prisma:seed": "ts-node prisma/seed.ts",
     "prisma:dev": "npx prisma migrate dev",
     "prisma:test": "dotenv -e .env.test -- npx prisma migrate dev",
     "prebuild": "rimraf dist",

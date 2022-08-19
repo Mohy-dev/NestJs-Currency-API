@@ -28,7 +28,6 @@ model Currency {
   updatedAt    DateTime       @updatedAt
   name         String
   code         String
-  rate         Float?
   euroRate     Float?
   ExchangeRate ExchangeRate[]
 
@@ -39,6 +38,9 @@ model ExchangeRate {
   id         Int      @id @default(autoincrement())
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  name       String
+  rate       Float
+  code       String
   currencyId Int
   currency   Currency @relation(fields: [currencyId], references: [id], onDelete: Cascade)
 
