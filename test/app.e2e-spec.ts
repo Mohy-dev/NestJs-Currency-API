@@ -79,7 +79,7 @@ describe('App e2e', () => {
       });
     });
 
-    emptyFieldsTest('signup');
+    emptyFieldsTest('signup'); // Empty fields test
 
     describe('signIn', () => {
       it('should sigin', () => {
@@ -90,7 +90,8 @@ describe('App e2e', () => {
           .expectStatus(200)
           .stores('token', 'access_token');
       });
-      emptyFieldsTest('signin');
+
+      emptyFieldsTest('signin'); // Empty fields test
     });
   });
 });
