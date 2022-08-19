@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  email     String   @unique
+  password  String
+  firstName String?
+  lastName  String?
+
+  @@map("users")
+}
+
+model Currency {
+  id           Int            @id @default(autoincrement())
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  name         String
+  code         String
+  rate         Float?
+  euroRate     Float?
+  ExchangeRate ExchangeRate[]
+
+  @@map("currencies")
+}
+
+model ExchangeRate {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  currencyId Int
+  currency   Currency @relation(fields: [currencyId], references: [id], onDelete: Cascade)
+
+  // ReadCommitted is the default db isolation level for postgres according to the prisma docs
+  // which we need it here
+  @@map("exchange_rates")
+}
