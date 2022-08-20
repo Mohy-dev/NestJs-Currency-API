@@ -59,6 +59,7 @@ export class CurrencyService {
     const currency = await this.prisma.currency.findFirst({
       where: {
         name: nameCurrency,
+        userId: user.id,
       },
     });
 
@@ -106,6 +107,7 @@ export class CurrencyService {
     const currency = await this.prisma.currency.findFirst({
       where: {
         name: nameCurrency,
+        userId: user.id,
       },
     });
 
@@ -114,7 +116,6 @@ export class CurrencyService {
         'Currency not found to get exchange rate from it',
       );
     }
-
     if (currency.userId !== user.id) {
       throw new ForbiddenException(
         'You are not allowed to perform this action',
@@ -157,6 +158,7 @@ export class CurrencyService {
     const from = await this.prisma.currency.findFirst({
       where: {
         name: fromCurrency,
+        userId: user.id,
       },
     });
 
@@ -204,6 +206,7 @@ export class CurrencyService {
       await this.prisma.currency.findFirst({
         where: {
           name: currency,
+          userId: user.id,
         },
       });
 
@@ -222,6 +225,7 @@ export class CurrencyService {
     await this.prisma.currency.updateMany({
       where: {
         name: currency,
+        userId: user.id,
       },
       data: {
         dollarRate: dto.dollarRate,
@@ -249,6 +253,7 @@ export class CurrencyService {
       await this.prisma.currency.findFirst({
         where: {
           name: currency,
+          userId: user.id,
         },
       });
 
@@ -297,11 +302,12 @@ export class CurrencyService {
     return data;
   }
 
-  async deleteCurrency(currency: string) {
+  async deleteCurrency(currency: string, user: any) {
     const currencyExist =
       await this.prisma.currency.findFirst({
         where: {
           name: currency,
+          userId: user.id,
         },
       });
 
@@ -332,6 +338,7 @@ export class CurrencyService {
     const currency = await this.prisma.currency.findFirst({
       where: {
         name: nameCurrency,
+        userId: user.id,
       },
     });
 

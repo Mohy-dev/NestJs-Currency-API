@@ -105,8 +105,12 @@ export class CurrencyController {
   @Delete(':currency')
   async deleteCurrency(
     @Param('currency') currency: string,
+    @GetUser() user: any,
   ) {
-    return this.currencyService.deleteCurrency(currency);
+    return this.currencyService.deleteCurrency(
+      currency,
+      user,
+    );
   }
 
   // @HttpCode(HttpStatus.NO_CONTENT)
