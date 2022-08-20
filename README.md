@@ -55,4 +55,4 @@ $ npm run prisma:seed
 
 ## API Documentation
 Postman API Documentation:
-[Link](shorturl.at/hjKMT)
+[Link](https://documenter.getpostman.com/view/20099052/VUqpscWt)
