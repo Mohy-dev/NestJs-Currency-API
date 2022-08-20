@@ -12,6 +12,7 @@ import {
   EditExchangeRateDto,
 } from './dto';
 
+// We should implement DRY to clean the repeated code throughout the service
 @Injectable()
 export class CurrencyService {
   constructor(private prisma: PrismaService) {}
@@ -22,7 +23,6 @@ export class CurrencyService {
   ) {
     codeCurrencyChecker(dto.code);
 
-    // We can implement DRY to clean the repeated code
     const currencyExist =
       await this.prisma.currency.findFirst({
         where: {

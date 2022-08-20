@@ -41,6 +41,7 @@ export class AuthService {
 
   async signUp(dto: AuthDto) {
     try {
+      // we can use regex for password to harden it more
       const hash = await argon.hash(dto.password);
       const user = await this.prisma.user.create({
         data: {
