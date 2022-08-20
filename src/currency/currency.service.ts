@@ -22,6 +22,7 @@ export class CurrencyService {
   ) {
     codeCurrencyChecker(dto.code);
 
+    // We can implement DRY to clean the repeated code
     const currencyExist =
       await this.prisma.currency.findFirst({
         where: {
@@ -373,7 +374,7 @@ export class CurrencyService {
     return data;
   }
 
-  // async convertCurrencyByDollarRate() { some logic}
+  // async convertCurrencyByDollarRate() { some logic }
 }
 
 const codeCurrencyChecker = (codeCurrency) => {

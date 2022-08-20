@@ -123,6 +123,7 @@ export class CurrencyController {
     );
   }
 
+  // Convert currency to currency without exchange rate, just by using the dollar rate between the currencies
   // @Get('/d_rate/:from/:to/:amount')
   // async convertCurrencyByDollarRate(
   //   @GetUser() user: any,
