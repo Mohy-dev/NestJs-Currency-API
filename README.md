@@ -57,5 +57,5 @@ $ npm run prisma:seed
 
 ```bash
 # Postman
-<a href="shorturl.at/hjKMT" target="_blank">API DOC URL</a>
+[Link](shorturl.at/hjKMT)
 ```
