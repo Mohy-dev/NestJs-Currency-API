@@ -27,6 +27,7 @@ export class CurrencyService {
       await this.prisma.currency.findFirst({
         where: {
           name: dto.name,
+          userId: userId,
         },
       });
 
