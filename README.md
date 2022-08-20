@@ -56,5 +56,5 @@ $ npm run prisma:seed
 
 ```bash
 # Postman
-shorturl.at/hjKMT
+https://shorturl.at/hjKMT
 ```
