@@ -54,8 +54,5 @@ $ npm run prisma:seed
 ![11](https://user-images.githubusercontent.com/96744413/185764669-892f26a4-9170-4d9b-bd06-1fb0a8768038.png)
 
 ## API Documentation
-
-```bash
-# Postman
+Postman API Documentation:
 [Link](shorturl.at/hjKMT)
-```
