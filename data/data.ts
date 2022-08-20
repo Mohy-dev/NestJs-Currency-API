@@ -7,12 +7,14 @@ const password = (password) => {
 
 export const users: any = [
   {
+    id: 1,
     firstName: 'Alice',
     email: 'just@email.com',
     password: 'password',
     lastName: 'Smith',
   },
   {
+    id: 2,
     firstName: 'Bob',
     email: 'email@example.com',
     password: 'password',
@@ -22,36 +24,42 @@ export const users: any = [
 
 export const currencies: any = [
   {
+    userId: 1,
     id: 1,
     name: 'dollar',
     code: 'USD',
     dollarRate: 1,
   },
   {
+    userId: 1,
     id: 2,
     name: 'euro',
     code: 'EUR',
     dollarRate: 0.9956,
   },
   {
+    userId: 1,
     id: 3,
     name: 'pound',
     code: 'GBP',
     dollarRate: 1.285,
   },
   {
+    userId: 1,
     id: 4,
     name: 'yen',
     code: 'JPY',
     dollarRate: 0.0091,
   },
   {
+    userId: 2,
     id: 5,
     name: 'franc',
     code: 'CHF',
     dollarRate: 0.999,
   },
   {
+    userId: 2,
     id: 6,
     name: 'yuan',
     code: 'CNY',

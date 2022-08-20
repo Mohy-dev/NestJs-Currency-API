@@ -18,6 +18,5 @@ export class CreateCurrencyDto {
   code: string;
 
   @IsOptional()
-  @IsNumber()
-  euroRate: number;
+  dollarRate: number;
 }

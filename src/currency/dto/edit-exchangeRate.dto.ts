@@ -1,7 +1,13 @@
 /*eslint-disable*/
-import { IsNumber } from 'class-validator';
+import { IsOptional } from 'class-validator';
 
 export class EditExchangeRateDto {
-  @IsNumber()
+  @IsOptional()
+  name: string;
+
+  @IsOptional()
   rate: number;
+
+  @IsOptional()
+  code: string;
 }

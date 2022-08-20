@@ -17,6 +17,5 @@ export class CreateExchangeRateDto {
   code: string;
 
   @IsNotEmpty()
-  @IsNumber()
   rate: number;
 }

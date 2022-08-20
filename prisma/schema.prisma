@@ -11,13 +11,14 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  email     String   @unique
+  id        Int        @id @default(autoincrement())
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  email     String     @unique
   password  String
   firstName String?
   lastName  String?
+  Currency  Currency[]
 
   @@map("users")
 }
@@ -28,9 +29,12 @@ model Currency {
   updatedAt    DateTime       @updatedAt
   name         String
   code         String
-  dollarRate     Float? // ratio to 1 fixed dollar
+  dollarRate   Float? // ratio to 1 fixed dollar
   ExchangeRate ExchangeRate[]
+  userId       Int
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  @@index([dollarRate], name: "dollarRate")
   @@map("currencies")
 }
 
@@ -44,7 +48,8 @@ model ExchangeRate {
   currencyId Int
   currency   Currency @relation(fields: [currencyId], references: [id], onDelete: Cascade)
 
+  @@index([rate], name: "rate")
+  @@map("exchange_rates")
   // ReadCommitted is the default db isolation level for postgres according to the prisma docs
   // which we need it here
-  @@map("exchange_rates")
 }
