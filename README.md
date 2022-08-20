@@ -43,6 +43,7 @@ $ npm run prisma:test
 # create database in container
 $ npm run db:dev:restart
 ```
+![12](https://user-images.githubusercontent.com/96744413/185764950-7b851773-9e05-41c8-962a-681acdc655ea.png)
 
 ## Seed database
 
